@@ -5,8 +5,12 @@ import { useEffect, useState } from "react";
 
 type Slide = {
   src: string;
+  eyebrow: string;
   title: string;
-  caption: string;
+  description: string;
+  fact: string;
+  credit: string;
+  source: string;
 };
 
 type SlideshowProps = {
@@ -19,7 +23,7 @@ export default function Slideshow({ slides }: SlideshowProps) {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % slides.length);
-    }, 4200);
+    }, 6500);
 
     return () => window.clearInterval(timer);
   }, [slides.length]);
@@ -49,9 +53,14 @@ export default function Slideshow({ slides }: SlideshowProps) {
       <div className="shade" />
 
       <section className="slide-copy">
-        <p>Praia do Cassino, RS</p>
+        <p className="place">Praia do Cassino, RS</p>
+        <p className="eyebrow">{slides[active].eyebrow}</p>
         <h1>{slides[active].title}</h1>
-        <span>{slides[active].caption}</span>
+        <span>{slides[active].description}</span>
+        <strong>{slides[active].fact}</strong>
+        <a href={slides[active].source} target="_blank" rel="noreferrer">
+          {slides[active].credit}
+        </a>
       </section>
 
       <nav className="slide-controls" aria-label="Controles do slideshow">
