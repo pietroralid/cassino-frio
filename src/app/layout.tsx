@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Esta frio no Cassino?",
-  description: "Temperatura atual da Praia do Cassino, RS.",
+  title: "Praia do Cassino",
+  description: "Slideshow com imagens da Praia do Cassino, RS.",
 };
 
 export default function RootLayout({
